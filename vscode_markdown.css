@@ -16,7 +16,7 @@ body {
     margin: auto;
     max-width: 42em;
     color: #737373;
-    background-color: white;
+    /* background-color: white; */
     margin: 10px 13px 10px 13px;
 }
 
@@ -44,11 +44,11 @@ a img { border: none; }
 p { margin-bottom: 9px; }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #404040;
+    color: #22c485;
     line-height: 36px;
 }
 
-h1 { margin-bottom: 18px; font-size: 30px; }
+h1 { margin-bottom: 18px; padding-bottom: 5px; font-size: 30px; }
 
 h2 { font-size: 24px; }
 
@@ -131,8 +131,3 @@ sup {
         page-break-inside: avoid;
     }
 }
-
-作者：编程go
-链接：http://www.jianshu.com/p/ccf605897e41
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

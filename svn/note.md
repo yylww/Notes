@@ -1,21 +1,15 @@
-<h1>svn不常用命令记录</h1>
+# svn不常用命令记录
 
-<h3>svn添加全局忽略</h3>
-<ol>
-  <li>cd ~/.subversion</li>
-  <li>vim config</li>
-  <li>修改global-ignores</li>
-</ol>
+### svn添加全局忽略
+1. cd ~/.subversion
+2. vim config
+3. 修改global-ignores
 
-<h3>svn忽略node_module文件夹</h3>
-<ol>
-  <li>svn propset svn:ignore 'node_module' .</li>
-  <li>svn commit -m 'ignore node_module'</li>
-</ol>
+### svn忽略node_module文件夹
+1. svn propset svn:ignore 'node_module' .
+2. svn commit -m 'ignore node_module'
 
-<h3>svn删除忽略</h3>
-<ol>
-  <li>svn proplist</li>
-  <li>svn propget svn:ignore</li>
-  <li>svn propdel svn:ignore</li>
-</ol>
+### svn删除忽略
+1. svn proplist
+2. svn propget svn:ignore
+3. svn propdel svn:ignore
