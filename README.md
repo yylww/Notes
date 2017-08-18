@@ -1,19 +1,2 @@
-# note
-开发中遇到的问题
 
-svn添加全局忽略
-
-1. cd ~/.subversion
-2. vim config
-3. 修改global-ignores
-
-svn忽略node_module文件夹
-
-1. svn propset svn:ignore 'node_module' .
-2. svn commit -m 'ignore node_module'
-
-svn删除忽略
-
-1. svn proplist
-2. svn propget svn:ignore
-3. svn propdel svn:ignore
+<h2>日常开发中遇到的各种问题的收集</h2>
