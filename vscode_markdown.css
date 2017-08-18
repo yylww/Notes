@@ -16,7 +16,6 @@ body {
     margin: auto;
     max-width: 42em;
     color: #737373;
-    /* background-color: white; */
     margin: 10px 13px 10px 13px;
 }
 
@@ -44,7 +43,7 @@ a img { border: none; }
 p { margin-bottom: 9px; }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #22c485;
+    color: #2f6fab;
     line-height: 36px;
 }
 
@@ -76,7 +75,7 @@ blockquote{
 
 code, pre {
     font-family: Monaco, Andale Mono, Courier New, monospace;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 code {
