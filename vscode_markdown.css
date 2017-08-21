@@ -1,4 +1,4 @@
-@charset "ust-8";
+@charset "utf-8";
 
 /**
  * vscode-markdown.css
@@ -15,7 +15,7 @@ body {
     padding: 1em;
     margin: auto;
     max-width: 42em;
-    color: #737373;
+    color: #d5d5d5;
     margin: 10px 13px 10px 13px;
 }
 
@@ -43,7 +43,7 @@ a img { border: none; }
 p { margin-bottom: 9px; }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #2f6fab;
+    color: #fff;
     line-height: 36px;
 }
 
@@ -75,14 +75,13 @@ blockquote{
 
 code, pre {
     font-family: Monaco, Andale Mono, Courier New, monospace;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 code {
-    background-color: #ffffe0;
+    background-color: #823B62;
     border: 1px solid orange;
-    color: rgba(0, 0, 0, 0.75);
-    padding: 1px 3px;
+    padding: 10px 14px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -90,43 +89,16 @@ code {
 
 pre {
     display: block;
-    background-color: #f8f8f8;    
-    border: 1px solid #2f6fab;
-    border-radius: 3px;
+    background-color: gray;
+    border-radius: 10px;
     overflow: auto;
-    padding: 14px;
+    padding: 10px 14px;
     white-space: pre-wrap;
     word-wrap: break-word;
-}
-
-pre code {
-    background-color: inherit;
-    border: none;    
-    padding: 0;
 }
 
 sup {
     font-size: 0.83em;
     vertical-align: super;
     line-height: 0;
-}
-
-* {
-    -webkit-print-color-adjust: exact;
-}
-
-@media screen and (min-width: 914px) {
-    body {
-        width: 854px;
-        margin: 10px auto;
-    }
-}
-
-@media print {
-    body, code, pre code, h1, h2, h3, h4, h5, h6 {
-        color: black;
-    }
-    table, pre {
-        page-break-inside: avoid;
-    }
 }
