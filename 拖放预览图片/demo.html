@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * { margin: 0; padding: 0; }
+
+    .container {
+      width: 600px;
+      margin: 100px auto 0;
+      border: 1px solid #9e9e9e;
+    }
+
+    .select-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .drag-area {
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      border: 1px dashed #d9d9d9;
+      color: #9e9e9e;
+    }
+
+    .active {
+      border: 1px dashed #22c485;
+    }
+
+    .preview-area {
+      padding: 20px;
+      border-top: 1px solid #d9d9d9;
+    }
+
+    .preview-area::after {
+      content: '';
+      display: block;
+      height: 0;
+      clear: both;
+    }
+
+    .image {
+      float: left;
+      width: 150px;
+      margin: 18px;
+    }
+
+    .image > p > span {
+      margin-right: 10px;
+    }
+
+    .image > p > span:last-child {
+      float: right;
+      margin-right: 0;
+      color: #22c485;
+    }
+
+    .image > img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="select-area">
+      <input id='J_select' type='file' />
+      <p id='J_drop' class="drag-area">或者将图片拖到此处</p>
+    </div>
+    
+    <div id="J_preview" class='preview-area'></div>
+  </div>
+
+  <script>
+    const FILE = {
+      fileInput: document.getElementById('J_select'),
+      dragDrop: document.getElementById('J_drop'),
+      previewArea: document.getElementById('J_preview'),
+      filesArr: [],
+      fileIndex: 0,
+
+      getFiles: function(e) {
+        // 获取文件列表对象
+        let files = e.target.files || e.dataTransfer.files
+        this.fileReader(files[0])
+      },
+
+      handleFiles: function(files) {
+        let html = ''
+        for (let i = 0; i < files.length; i++) {
+          html += '<div class="image"><p><span>'+ files[i].name +'</span><span>删除</span></p><img src="' + files[i].url + '" /></div>'
+        } 
+        this.previewArea.innerHTML = html
+      },
+
+      fileReader: function(file) {
+        let reader = new FileReader()
+        let that = this
+        if (/image/.test(file.type)) {
+          reader.readAsDataURL(file)
+        } else {
+          alert(file.name + '不是图片')
+        }
+
+        reader.onload = function(e) {
+          file.index = that.fileIndex++
+          file.url = reader.result
+          that.filesArr.push(file)
+          that.handleFiles(that.filesArr)
+        }
+      },
+
+      init: function() {
+        var self = this
+
+        // file控件添加 'change' 事件监听
+        self.fileInput.addEventListener('change', function(e) { 
+          self.getFiles(e) 
+        }, false)
+
+        // 拖拽区域添加 'dragover' 'dragleave' 'drop' 事件监听
+        self.dragDrop.addEventListener('dragover', function(e) { 
+          e.preventDefault() 
+          self.dragDrop.classList.add('active') // 文件拖拽到了敏感区域，添加 'active' 样式
+        }, false)
+
+        self.dragDrop.addEventListener('dragleave', function(e) { 
+          e.preventDefault()
+          self.dragDrop.classList.remove('active') // 文件离开敏感区域，移除 'active' 样式
+        }, false) 
+
+        self.dragDrop.addEventListener('drop', function(e) {
+          e.preventDefault()
+          self.dragDrop.classList.remove('active')
+          self.getFiles(e)
+        }, false)
+      }
+    }
+
+    FILE.init()
+  </script>
+</body>
+</html>
