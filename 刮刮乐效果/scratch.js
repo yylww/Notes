@@ -108,7 +108,7 @@ function eventMove(e) {
 }
 
 function randomOption() {
-  var number = Math.floor(Math.random() * 10);
+  var number = Math.floor(Math.random() * 5);
   var result = document.getElementById('result');
   result.innerHTML = options[number];
   getOption = true;
